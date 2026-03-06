@@ -48,7 +48,8 @@ function renderProducts() {
         <p>Preço: R$${product.price.toFixed(2)}</p>
         <p>Quantidade: ${product.quantity}</p>
         <p>Categoria: ${product.category}</p>
-         <p>Valor total: R$${product.totalValue.toFixed(2)}</p>
+        <p>Valor total: R$${product.totalValue.toFixed(2)}</p>
+        <button>Remover</button> 
       </div>
     `;
   });
