@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerenciador Produtos</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <main>
@@ -15,8 +16,18 @@
           id="productName"
           placeholder="Qual o nome do produto"
         />
-        <input class="border" type="number" id="productPrice" placeholder="Preço" />
-        <input class="border" type="number" id="productQuantity" placeholder="Quantidade"/>
+        <input
+          class="border"
+          type="number"
+          id="productPrice"
+          placeholder="Preço"
+        />
+        <input
+          class="border"
+          type="number"
+          id="productQuantity"
+          placeholder="Quantidade"
+        />
         <select class="border" id="categories">
           <option value="eletronicos">Eletrônicos</option>
           <option value="alimentos">Alimentos</option>
