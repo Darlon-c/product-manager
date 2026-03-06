@@ -3,11 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Finance App</title>
+    <title>Gerenciador Produtos</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-   
+    <main>
+      <div>
+        <input
+          class="border"
+          type="text"
+          id="productName"
+          placeholder="Qual o nome do produto"
+        />
+        <input class="border" type="number" id="productPrice" placeholder="Preço" />
+        <input class="border" type="number" id="productQuantity" placeholder="Quantidade"/>
+        <select class="border" id="categories">
+          <option value="eletronicos">Eletrônicos</option>
+          <option value="alimentos">Alimentos</option>
+          <option value="roupas">Roupas</option>
+        </select>
+
+        <button id="saveProduct">Cadastrar Produto</button>
+      </div>
+    </main>
 
     <script src="/Js/index.js"></script>
   </body>
