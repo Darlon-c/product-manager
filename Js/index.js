@@ -4,6 +4,7 @@ const productQuantity = document.getElementById("productQuantity");
 const productCategories = document.getElementById("categories");
 const saveProduct = document.getElementById("saveProduct");
 const resumeProducts = document.getElementById("resumeProducts");
+const totalValueStock = document.getElementById("totalValueStock");
 
 let listProducts = [];
 let idCount = 1;
@@ -55,6 +56,15 @@ function renderProducts() {
   });
 
   resumeProducts.innerHTML = render.join("");
+  totalValueToStock()
+}
+
+function totalValueToStock() {
+  const total = listProducts.reduce((acc, product) => {
+    return (acc += product.totalValue);
+  }, 0);
+
+  totalValueStock.innerHTML = total
 }
 
 saveProduct.addEventListener("click", newProduct);
