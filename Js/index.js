@@ -11,7 +11,6 @@ let idCount = 1;
 
 function saveStorage() {
   localStorage.setItem("products", JSON.stringify(listProducts));
-  console.log("Produtos salvos automaticamente!");
 }
 
 function loadInitialStorage() {
