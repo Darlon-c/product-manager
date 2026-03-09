@@ -50,21 +50,30 @@ function renderProducts() {
         <p>Quantidade: ${product.quantity}</p>
         <p>Categoria: ${product.category}</p>
         <p>Valor total: R$${product.totalValue.toFixed(2)}</p>
-        <button>Remover</button> 
+        <button class="border" onclick="removeProduct(${product.id})">Remover</button> 
       </div>
     `;
   });
 
   resumeProducts.innerHTML = render.join("");
-  totalValueToStock()
+  totalValueToStock();
 }
 
 function totalValueToStock() {
   const total = listProducts.reduce((acc, product) => {
-    return (acc += product.totalValue);
+    return acc + product.totalValue;
   }, 0);
 
-  totalValueStock.innerHTML = total
+  totalValueStock.innerHTML = `Valor total do estoque: R$${total.toFixed(2)}`;
 }
+
+function removeProduct(id) {
+  listProducts = listProducts.filter((product) => {
+    return product.id !== id;
+  });
+
+  renderProducts();
+}
+
 
 saveProduct.addEventListener("click", newProduct);
