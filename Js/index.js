@@ -9,6 +9,24 @@ const totalValueStock = document.getElementById("totalValueStock");
 let listProducts = [];
 let idCount = 1;
 
+function saveStorage() {
+  localStorage.setItem("products", JSON.stringify(listProducts));
+  console.log("Produtos salvos automaticamente!");
+}
+
+function loadInitialStorage() {
+  const savedProducts = localStorage.getItem("products");
+
+  if (savedProducts) {
+    listProducts = JSON.parse(savedProducts);
+    // Atualizar o idCount baseado no último id
+    if (listProducts.length > 0) {
+      idCount = Math.max(...listProducts.map((p) => p.id)) + 1;
+    }
+    renderProducts();
+  }
+}
+
 function newProduct() {
   if (productName.value === "") {
     Swal.fire("Informe o nome do produto");
@@ -33,6 +51,7 @@ function newProduct() {
   listProducts.push(product);
   idCount++;
   renderProducts();
+  saveStorage();
 
   console.log(listProducts);
 
@@ -55,7 +74,8 @@ function renderProducts() {
     `;
   });
 
-  resumeProducts.innerHTML = render.join("");
+  resumeProducts.innerHTML =
+    render.length > 0 ? render.join("") : "<p>Nenhum produto cadastrado.</p>";
   totalValueToStock();
 }
 
@@ -73,7 +93,9 @@ function removeProduct(id) {
   });
 
   renderProducts();
+
+  saveStorage();
 }
 
-
+loadInitialStorage();
 saveProduct.addEventListener("click", newProduct);
