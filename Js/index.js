@@ -62,13 +62,13 @@ function newProduct() {
 function renderProducts() {
   const render = listProducts.map((product) => {
     return `
-      <div>
+      <div class="bg-white p-4 rounded-lg shadow">
         <p>Nome: ${product.name}</p>
         <p>Preço: R$${product.price.toFixed(2)}</p>
         <p>Quantidade: ${product.quantity}</p>
         <p>Categoria: ${product.category}</p>
         <p>Valor total: R$${product.totalValue.toFixed(2)}</p>
-        <button class="border" onclick="removeProduct(${product.id})">Remover</button> 
+        <button class="mt-3 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600" onclick="removeProduct(${product.id})">Remover</button> 
       </div>
     `;
   });
