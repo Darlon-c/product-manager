@@ -68,7 +68,8 @@ function renderProducts() {
         <p>Quantidade: ${product.quantity}</p>
         <p>Categoria: ${product.category}</p>
         <p>Valor total: R$${product.totalValue.toFixed(2)}</p>
-        <button class="mt-3 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600" onclick="removeProduct(${product.id})">Remover</button> 
+        <button class="mt-3 bg-amber-200 px-3 py-1 rounded hover:bg-amber-300" onclick="editTitle(${product.id})">Editar nome</button>
+        <button class="mt-3 bg-red-500 px-3 py-1 rounded hover:bg-red-600" onclick="removeProduct(${product.id})">Remover</button> 
       </div>
     `;
   });
@@ -92,7 +93,20 @@ function removeProduct(id) {
   });
 
   renderProducts();
+  saveStorage();
+}
 
+function editTitle(id) {
+  const product = listProducts.find((p) => p.id === id);
+
+  if (!product) return;
+
+  const newTitle = prompt("Novo nome:");
+
+  if (newTitle === null || newTitle === "") return;
+
+  product.name = newTitle;
+  renderProducts();
   saveStorage();
 }
 
