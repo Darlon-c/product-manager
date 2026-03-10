@@ -103,7 +103,7 @@ function editTitle(id) {
 
   const newTitle = prompt("Novo nome:");
 
-  if (newTitle === null || newTitle === "") return;
+  if (!newTitle || newTitle.trim() === "") return;
 
   product.name = newTitle;
   renderProducts();
