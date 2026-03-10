@@ -30,10 +30,10 @@ function newProduct() {
   if (productName.value === "") {
     Swal.fire("Informe o nome do produto");
     return;
-  } else if (productPrice.value === "") {
+  } else if (productPrice.value === "" || productPrice.value <= 0) {
     Swal.fire("Informe o preço do produto");
     return;
-  } else if (productQuantity.value === "") {
+  } else if (productQuantity.value === "" || productQuantity.value <= 0) {
     Swal.fire("Informe a quantidade do produto");
     return;
   }
